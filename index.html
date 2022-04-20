@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<p>Esempio di closure in html</p>
+<button id="size-12">12</button>
+<button id="size-14">14</button>
+<button id="size-16">16</button>
+
+    <script>
+
+      function sizer(size){
+          return function(){
+              console.log('sizer');
+              document.body.style.fontSize = size + 'px';
+          }
+      }
+
+      var size12= sizer(12);
+      var size14= sizer(14);
+      var size16= sizer(16);
+
+    document.getElementById('size-12').onclick = size12;
+    document.getElementById('size-14').onclick = size14;
+    document.getElementById('size-16').onclick = size16;
+
+       aaaa = 12;
+       // console.log(this);
+       var  miaFunzione = function(){
+           console.log(this);
+       }
+       // miaFunzione();
+
+       
+// function Persona (nome, cognome) {
+//     this.nome = nome;
+//     this.cognome = cognome;
+//     this.nomeCompleto = function() {
+//         console.log(this);
+//         return this.nome + " " + this.cognome;
+//     };
+// }
+
+// var mario = new Persona('mario', 'rossi');
+// mario.nomeCompleto();
+
+
+
+
+    </script>
+</body>
+</html>
