@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const data = [];
+    async function* sequenzaAsincrona(start, end) {
+        for(let i = start; i < end; i++) {
+            let url = `https://reqres.in/api/users?page=${i}`
+            var response = await fetch(url);
+            const body = await response.json(); 
+            yield body;
+        }
+    }
+
+    (async() => {
+        let seq = sequenzaAsincrona(1,5);
+        for await (let num of seq) {
+            data.push (...num.data);
+        }
+        console.log(data);
+    })();
+
+
+    </script>
+</body>
+</html>
